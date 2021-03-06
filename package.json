@@ -1,0 +1,25 @@
+{
+  "name": "dev-undefined-discord-bot",
+  "version": "1.0.0",
+  "description": "A simple Discord Bot that makes the Rank management",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "node src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brunosana/dev-undefined-discord-bot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GNU",
+  "bugs": {
+    "url": "https://github.com/brunosana/dev-undefined-discord-bot/issues"
+  },
+  "homepage": "https://github.com/brunosana/dev-undefined-discord-bot#readme",
+  "dependencies": {
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0"
+  }
+}
