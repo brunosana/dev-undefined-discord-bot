@@ -1,3 +1,1 @@
-module.exports = {
-    prefix: "!"
-}
+export default { prefix: "!" };
