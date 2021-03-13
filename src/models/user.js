@@ -3,6 +3,11 @@ const { Schema, model } = mongoose;
 
 const UserSchema = new Schema(
     {
+        userId: {
+            type: String,
+            required: true,
+            unique: true            
+        },
         name: {
             type: String,
             required: true,
@@ -13,10 +18,14 @@ const UserSchema = new Schema(
             type: Number,
             min: 0,
             default: 0
+        },
+        wins: {
+            type: Number,
+            min: 0
         }
     },
 
-    { timeStamps: true, discriminatorKey: 'role' },
+    { timeStamps: true },
 );
 
 const User = model('User', UserSchema);

@@ -4,16 +4,22 @@ import { User } from '../models/user.js';
 export default async (client, message) => {
     
     const execute = async () => {
-        const name = message.content.split(' ')[1];
-        if(!name){
-            throw new Error("Name must be required. Please, type _!add <name>_!");
+        const usersMap = await message.mentions.users;
+        if(!usersMap){
+            throw new Error('User not fount. Please, type _!add @User_');
         }
-        const userExists = await User.findOne({ name });
+        const users = Array.from(usersMap);
+        if(users.length > 1 || users.length <=0){
+            throw new Error('Just one member can be added each time. Please, type _!add @User_');
+        }
+        console.log(users[0][1]);
+        const { id, username } = users[0][1];
+        const userExists = await User.findOne({ id });
         if(userExists){
             throw new Error("This user is already in the database!");
         }
-        await User.create({name});
-        return name;
+        const response = await User.create({userId: id, name: username});
+        return username;
     }
     try{
         const name = await execute();
