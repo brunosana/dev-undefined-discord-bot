@@ -3,9 +3,16 @@ const { Schema, model } = mongoose;
 
 const MarathonSchema = new Schema(
     {
-        problems: {
-            type: [String],
-        },
+        problems: [{
+            name:{
+                type: String,
+                required: true,
+            },
+            url: {
+                type: String,
+                required: true
+            }
+        }],
         data: {
             type: Date,
             default: new Date().toLocaleDateString("en-US")
@@ -40,17 +47,9 @@ const MarathonSchema = new Schema(
             enum: ['CREATED', 'IN_PROGRESS', 'CLOSED'],
             default: 'CREATED'
         },
-        pointing: {
-            winner: {
-                type: Number,
-                default: 30,
-                min: 1,
-            },
-            delta: {
-                type: Number,
-                default: 8,
-                min: 1
-            }
+        points: {
+            type: Number,
+            min: 0
         }
     },
 

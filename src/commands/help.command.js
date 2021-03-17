@@ -4,6 +4,16 @@ export default async (client, message) => {
 
     const commands = [
         {
+            name: "add",
+            description: "Add a memeber on group",
+            syntax: "!add @User"
+        },
+        {
+            name: "remove",
+            description: "Remove a member of group",
+            syntax: "!remove @User"
+        },
+        {
             name: "rank",
             description: "Show the current rank of the group",
             syntax: "!rank"
@@ -14,14 +24,19 @@ export default async (client, message) => {
             syntax: "!create @User"
         },
         {
-            name: "add",
-            description: "Add a memeber on group",
-            syntax: "!add @User"
+            name: "remove marathon",
+            description: "Remove a marathon (OBS: A Finished marathon can't be removed).",
+            syntax: "!removeMarathon <marathon_id>"
         },
         {
-            name: "remove",
-            description: "Remove a member of group",
-            syntax: "!remove @User"
+            name: "add problem",
+            description: "Insert a problem on a marathon (Only in private channel).",
+            syntax: "!addProblem <problem_name_without_spaces> <problem_url>"
+        },
+        {
+            name: "remove problem",
+            description: "Insert a problem on a marathon (Only in private channel).",
+            syntax: "!addProblem <problem_name_without_spaces> <problem_url>"
         },
         {
             name: "help",
