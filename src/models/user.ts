@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
+interface UserProps {
+    userId: string;
+    name: string;
+    points: number;
+    wins: number;
+}
+
 const UserSchema = new Schema(
     {
         userId: {
@@ -25,9 +32,9 @@ const UserSchema = new Schema(
         }
     },
 
-    { timeStamps: true },
+    { timestamps: true },
 );
 
 const User = model('User', UserSchema);
 
-export { User };
+export { User, UserProps };

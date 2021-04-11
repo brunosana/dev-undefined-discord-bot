@@ -1,6 +1,24 @@
 import mongoose from 'mongoose';
 const { Schema, model } = mongoose;
 
+interface MarathonProps {
+    _id: string;
+    problems: [{
+        name: String;
+        url: String;
+        points: Number;
+    }],
+    data: Date,
+    dealer: String,
+    members:[{
+        name: String;
+        rank: Number;
+        points: Number;
+    }],
+    status: String;
+    points: Number;
+}
+
 const MarathonSchema = new Schema(
     {
         problems: [{
@@ -11,6 +29,12 @@ const MarathonSchema = new Schema(
             url: {
                 type: String,
                 required: true
+            },
+            points: {
+                type: Number,
+                required: true,
+                default: 0,
+                min: 0
             }
         }],
         data: {
@@ -53,9 +77,9 @@ const MarathonSchema = new Schema(
         }
     },
 
-    { timeStamps: true },
+    { timestamps: true },
 );
 
 const Marathon = model('Marathon', MarathonSchema);
 
-export { Marathon };
+export { Marathon, MarathonProps };
