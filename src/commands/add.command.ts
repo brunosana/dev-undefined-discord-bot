@@ -28,7 +28,6 @@ const execute = async (client: Discord.Client, message: Discord.Message) => {
     });
 
     const pointsConverted = parseInt(points, 10);
-    console.log('points', pointsConverted);
 
     marathons[0].problems.push({name, url, points: pointsConverted});
     if(marathons[0].points){

@@ -16,7 +16,7 @@ const execute = async (discord: Discord.Client, message: Discord.Message) =>{
         marathons.map(marathon => {
             let value = `\n\nMembers: ${marathon.members.length} | Points: ${marathon.points || 0}`;
             let problems ="\n\n\nProblems:";
-            if(marathon.status != 'CREATED' || true){
+            if(marathon.status != 'CREATED'){
                 marathon.problems.forEach(problem => {
                     let problemValue = `\nProblem: ${marathon.problems.indexOf(problem)} | Name: ${problem.name} | Points: ${problem.points}\nUrl: ${problem.url}`;
                     problems += problemValue;
