@@ -12,6 +12,7 @@ import { execute as dealerExecute } from './dealer.command';
 import { execute as testExecute } from './test.command';
 import { execute as delExecute } from './del.command';
 import { execute as listExecute } from './list.command';
+import { execute as startExecute } from './start.command';
 
 
 const loadCommands = (Router: RouterProps) => {
@@ -21,6 +22,7 @@ const loadCommands = (Router: RouterProps) => {
     Router.use("del", haveMarathonManagerRole, delExecute);
     Router.use("list", listExecute);
     Router.use("rank", rankExecute);
+    Router.use("start", startExecute);
     Router.use("load", loadExecute);
     Router.use("dealer", dealerExecute);
     Router.use("test", testExecute);

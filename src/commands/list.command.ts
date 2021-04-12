@@ -24,7 +24,7 @@ const execute = async (discord: Discord.Client, message: Discord.Message) =>{
             }else{
                 problems = "This marathon hasn't started yet, the problemas aren't visible."
             }
-            let date = `${marathon.data.getDay()}/${marathon.data.getMonth()}/${marathon.data.getFullYear()}`
+            let date =  marathon.data.toLocaleDateString(); //`${marathon.data.getDay()}/${marathon.data.getMonth()}/${marathon.data.getFullYear()}`
             fields.push({
                 name: `Marathon ${fields.length+1}. ID: ${marathon._id} | Date: ${date}`,
                 value: `${value}\n${problems}`,
