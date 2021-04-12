@@ -3,6 +3,7 @@ import Discord from 'discord.js';
 import { Marathon, MarathonProps } from '../models/marathon';
 import { User } from '../models/user';
 import { helpObject as newHelp } from './new.command';
+import { helpObject as addHelp } from './add.command';
 
 interface sendMethodProp extends Discord.GuildChannel {
     send: Function;
@@ -19,6 +20,9 @@ const execute = async (discord: Discord.Client, message: Discord.Message) =>{
     const dealer = await User.findOne({ _id: marathons[0].dealer });
     if(!(dealer.userId === message.author.id)){
         throw new Error(`Just the dealer of current opened marathon can invoke this command. This thime, the current Dealer is <@${dealer.userId}>`)
+    }
+    if(marathons[0].problems.length <=0){
+        throw new Error(`You cant start a marathon without problems, please, type _${addHelp.syntax}_`)
     }
     marathons[0].status = 'IN_PROGRESS';
     marathons[0].date = new Date();
