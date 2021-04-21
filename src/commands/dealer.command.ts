@@ -19,6 +19,7 @@ const execute = async (client: Discord.Client, message: Discord.Message) => {
         throw new Error(`Just the dealer of current opened marathon can invoke this command. This thime, the current Dealer is <@${dealer.userId}>`)
     }
     message.author.send(`${messageCodes.success} - Hello Dealer xD! You can add problems typing **in my private chat** the command ${addHelp.syntax}`);
+    message.channel.send(`${messageCodes.success} - Hey, <@${message.author.id}>, i sent you a private message ;)`);
 }
 
 const helpObject = {

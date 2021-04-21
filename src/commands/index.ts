@@ -25,6 +25,7 @@ const loadCommands = (Router: RouterProps) => {
     Router.use("problems", problemsExecute);
     Router.use("list", listExecute);
     Router.use("rank", rankExecute);
+    Router.use("start", startExecute);
     Router.use("load", loadExecute);
     Router.use("dealer", dealerExecute);
     Router.use("test", testExecute);
