@@ -27,7 +27,7 @@ const execute = async (discord: Discord.Client, message: Discord.Message) =>{
     }
     const channels = message.guild.channels.cache.array();//.get("welcome-and-rules");
     const textChannels = channels.filter(channel => channel.type === "text");
-    const welcomeChannels = textChannels.filter(channel => channel.name === "welcome-and-rules");
+    const welcomeChannels = textChannels.filter(channel => channel.id === "831270050689974322");
     if(!welcomeChannels[0]){
         throw new Error("The Marathons is Started but i can't find welcome channel");
     }else{

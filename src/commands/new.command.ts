@@ -1,21 +1,24 @@
 import Discord from 'discord.js';
 import messageCodes  from '../utils/messageCodes';
+
+import { helpObject as loadHelp } from './load.command';
+
 import { Marathon } from '../models/marathon';
 import { User } from '../models/user';
 
 const execute = async (client: Discord.Client, message: Discord.Message) => {
         const usersMap = message.mentions.users;
         if(!usersMap){
-            throw new Error('Dealer must be necessary. Please, type _!add @User_');
+            throw new Error(`Dealer must be necessary. Please, type _${loadHelp.syntax}_`);
         }
         const users = Array.from(usersMap);
         if(users.length > 1 || users.length <=0){
-            throw new Error('Invalid Dealer data. Please, type _!new @User_');
+            throw new Error(`Invalid Dealer data. Please, type _${helpObject.syntax}_`);
         }
         const dealer = users[0][1];
         const dealerExists = await User.findOne({userId: dealer.id});
         if(!dealerExists){
-            throw new Error('Dealer is not on database. Please, type _!add @User_');
+            throw new Error(`Dealer is not on database. Please, type _${loadHelp.syntax}_`);
         }
         const marathons = await Marathon.find();
         marathons.map((m: { status: string; }) => {
