@@ -1,11 +1,15 @@
 import Discord from 'discord.js';
 import messageCodes  from '../utils/messageCodes';
 
-import { helpObject as addHelp } from './add.command';
 import { helpObject as newHelp } from './new.command';
+import { helpObject as addHelp } from './add.command';
+import { helpObject as rankHelp } from './rank.command';
 import { helpObject as loadHelp } from './load.command';
 import { helpObject as dealerHelp } from './dealer.command';
 import { helpObject as delHelp } from './del.command';
+import { helpObject as listHelp } from './list.command';
+import { helpObject as problemsHelp } from './problems.command';
+import { helpObject as startHelp } from './start.command';
 
 export default async (client: Discord.Client, message: Discord.Message) => {
 
@@ -14,10 +18,14 @@ export default async (client: Discord.Client, message: Discord.Message) => {
         newHelp,
         delHelp,
         addHelp,
+        listHelp,
         dealerHelp,
+        rankHelp,
+        problemsHelp,
+        startHelp,
         {
             name: "help",
-            description: "Show the current rank of the group",
+            description: "Show all commands",
             syntax: "!help"
         },
     ]

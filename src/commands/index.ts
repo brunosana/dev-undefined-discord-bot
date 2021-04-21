@@ -12,14 +12,17 @@ import { execute as dealerExecute } from './dealer.command';
 import { execute as testExecute } from './test.command';
 import { execute as delExecute } from './del.command';
 import { execute as listExecute } from './list.command';
+import { execute as problemsExecute } from './problems.command';
 import { execute as startExecute } from './start.command';
 
 
 const loadCommands = (Router: RouterProps) => {
     Router.use("help", helpCommand);
     Router.use("new", haveMarathonManagerRole, newExecute);
-    Router.use("add", haveMarathonManagerRole, isPrivate, addExecute);
+    Router.use("start", haveMarathonManagerRole, startExecute);
+    Router.use("add", isPrivate, addExecute);
     Router.use("del", haveMarathonManagerRole, delExecute);
+    Router.use("problems", problemsExecute);
     Router.use("list", listExecute);
     Router.use("rank", rankExecute);
     Router.use("start", startExecute);
